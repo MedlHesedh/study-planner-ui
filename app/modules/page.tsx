@@ -3,7 +3,7 @@
 import { MainLayout } from '@/components/layout/MainLayout'
 import { ModuleTable } from '@/components/modules/ModuleTable'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
-import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
+import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { Module } from '@/lib/types/study'
 
 export default function ModulesPage() {

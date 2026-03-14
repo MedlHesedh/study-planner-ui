@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { StudyTimer } from '@/components/focus-mode/StudyTimer'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
-import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
+import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {

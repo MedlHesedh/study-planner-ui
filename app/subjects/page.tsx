@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
+import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { AVAILABLE_SUBJECTS, SUBJECT_CHART_COLORS } from '@/lib/constants'
 import { Progress } from '@/components/ui/progress'
 
