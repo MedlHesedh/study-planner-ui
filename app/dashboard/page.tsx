@@ -5,7 +5,7 @@ import { TodaysSessions } from '@/components/dashboard/TodaysSessions'
 import { StudyStreak } from '@/components/dashboard/StudyStreak'
 import { WeeklyStats } from '@/components/dashboard/WeeklyStats'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
-import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
+import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { toISODateString, getDateRange } from '@/lib/utils/dateHelpers'
 import { useMemo } from 'react'
 

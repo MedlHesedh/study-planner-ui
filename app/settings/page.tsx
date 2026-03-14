@@ -6,7 +6,7 @@ import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
-import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
+import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { AlertCircle } from 'lucide-react'
 
 export default function SettingsPage() {

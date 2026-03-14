@@ -1,10 +1,10 @@
 'use client'
 
-import { createContext, useContext, useState, useCallback, useEffect } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react'
 import { StudyPlan, Module, StudySession } from '../types/study'
 import { getFromLocalStorage, saveToLocalStorage } from '../utils/localStorage'
 
-interface StudyPlanContextType {
+export interface StudyPlanContextType {
   plans: StudyPlan[]
   modules: Module[]
   sessions: StudySession[]
@@ -35,7 +35,7 @@ interface StudyPlanContextType {
 
 const StudyPlanContext = createContext<StudyPlanContextType | undefined>(undefined)
 
-export function StudyPlanProvider({ children }: { children: React.ReactNode }) {
+export function StudyPlanProvider({ children }: { children: ReactNode }) {
   const [plans, setPlans] = useState<StudyPlan[]>([])
   const [modules, setModules] = useState<Module[]>([])
   const [sessions, setSessions] = useState<StudySession[]>([])
@@ -57,19 +57,16 @@ export function StudyPlanProvider({ children }: { children: React.ReactNode }) {
   // Save to localStorage whenever data changes
   useEffect(() => {
     if (!isHydrated) return
-
     saveToLocalStorage('studyPlans', plans)
   }, [plans, isHydrated])
 
   useEffect(() => {
     if (!isHydrated) return
-
     saveToLocalStorage('studyModules', modules)
   }, [modules, isHydrated])
 
   useEffect(() => {
     if (!isHydrated) return
-
     saveToLocalStorage('studySessions', sessions)
   }, [sessions, isHydrated])
 
