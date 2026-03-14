@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
 import { AVAILABLE_SUBJECTS, SUBJECT_CHART_COLORS } from '@/lib/constants'
@@ -43,8 +44,9 @@ export default function SubjectsPage() {
   }, [modules])
 
   return (
-    <MainLayout>
-      <div className="space-y-6">
+    <ProtectedRoute>
+      <MainLayout>
+        <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">Subjects</h1>
           <p className="text-muted-foreground">
@@ -94,46 +96,12 @@ export default function SubjectsPage() {
                   </p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Overall Stats */}
-        {modules.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Overall Progress</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground mb-1">Total Modules</p>
-                  <p className="text-3xl font-bold">{modules.length}</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground mb-1">Completed</p>
-                  <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                    {modules.filter((m) => m.status === 'Completed').length}
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground mb-1">Total Hours</p>
-                  <p className="text-3xl font-bold">{modules.reduce((sum, m) => sum + m.hoursRequired, 0)}h</p>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <p className="font-medium">Overall Completion</p>
-                  <p className="text-muted-foreground">
-                    {Math.round((modules.filter((m) => m.status === 'Completed').length / modules.length) * 100)}%
-                  </p>
-                </div>
-                <Progress
-                  value={
-                    (modules.filter((m) => m.status === 'Completed').length / modules.length) *
-                    100
-                  }
+        ))}
+        </div>
+      </MainLayout>
+    </ProtectedRoute>
+  )
+}
                   className="h-3"
                 />
               </div>

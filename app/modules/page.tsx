@@ -2,6 +2,7 @@
 
 import { MainLayout } from '@/components/layout/MainLayout'
 import { ModuleTable } from '@/components/modules/ModuleTable'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
 import { Module } from '@/lib/types/study'
 
@@ -16,8 +17,9 @@ export default function ModulesPage() {
   }
 
   return (
-    <MainLayout>
-      <div className="space-y-6">
+    <ProtectedRoute>
+      <MainLayout>
+        <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">Module Tracker</h1>
           <p className="text-muted-foreground">
@@ -35,7 +37,8 @@ export default function ModulesPage() {
         ) : (
           <ModuleTable modules={modules} onStatusChange={handleStatusChange} />
         )}
-      </div>
-    </MainLayout>
+        </div>
+      </MainLayout>
+    </ProtectedRoute>
   )
 }

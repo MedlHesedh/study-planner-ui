@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { StudyTimer } from '@/components/focus-mode/StudyTimer'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -26,10 +27,11 @@ export default function FocusModePage() {
   const selectedModule = modules.find((m) => m.id === selectedModuleId)
 
   return (
-    <MainLayout>
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold mb-2">Focus Mode</h1>
+    <ProtectedRoute>
+      <MainLayout>
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Focus Mode</h1>
           <p className="text-muted-foreground">
             Use the Pomodoro timer to maintain focus and track your study sessions
           </p>
@@ -124,6 +126,7 @@ export default function FocusModePage() {
           </div>
         </div>
       </div>
-    </MainLayout>
+      </MainLayout>
+    </ProtectedRoute>
   )
 }

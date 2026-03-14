@@ -4,8 +4,9 @@ import { MainLayout } from '@/components/layout/MainLayout'
 import { TodaysSessions } from '@/components/dashboard/TodaysSessions'
 import { StudyStreak } from '@/components/dashboard/StudyStreak'
 import { WeeklyStats } from '@/components/dashboard/WeeklyStats'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { useStudyPlanStore } from '@/lib/hooks/useStudyPlanStore'
-import { toISODateString, getDateRange, getDaysDifference } from '@/lib/utils/dateHelpers'
+import { toISODateString, getDateRange } from '@/lib/utils/dateHelpers'
 import { useMemo } from 'react'
 
 export default function DashboardPage() {
@@ -69,8 +70,9 @@ export default function DashboardPage() {
   }, [modules, sessions])
 
   return (
-    <MainLayout>
-      <div className="space-y-8">
+    <ProtectedRoute>
+      <MainLayout>
+        <div className="space-y-8">
         {/* Header */}
         <div>
           <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
@@ -109,7 +111,8 @@ export default function DashboardPage() {
             </p>
           </div>
         )}
-      </div>
-    </MainLayout>
+        </div>
+      </MainLayout>
+    </ProtectedRoute>
   )
 }

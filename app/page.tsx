@@ -1,11 +1,41 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Zap, Calendar, BarChart3 } from 'lucide-react'
+import { ArrowRight, BookOpen, Zap, Calendar, BarChart3, Loader } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ROUTES } from '@/lib/constants'
+import { createClient } from '@/lib/supabase/client'
 
 export default function Home() {
+  const router = useRouter()
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = createClient()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+
+      if (user) {
+        router.push(ROUTES.DASHBOARD)
+      }
+      setIsLoading(false)
+    }
+
+    checkAuth()
+  }, [router])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader className="w-8 h-8 animate-spin text-muted-foreground" />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
       {/* Navigation */}
@@ -18,9 +48,14 @@ export default function Home() {
             <h1 className="font-bold text-lg">StudyFlow</h1>
           </div>
         </div>
-        <Link href={ROUTES.DASHBOARD}>
-          <Button>Enter App</Button>
-        </Link>
+        <div className="flex gap-3">
+          <Link href="/auth/login">
+            <Button variant="outline">Login</Button>
+          </Link>
+          <Link href="/auth/sign-up">
+            <Button>Sign Up</Button>
+          </Link>
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -37,14 +72,14 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href={ROUTES.STUDY_PLANNER}>
+              <Link href="/auth/sign-up">
                 <Button size="lg" className="w-full sm:w-auto">
-                  Create Study Plan <ArrowRight className="w-4 h-4 ml-2" />
+                  Get Started <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
-              <Link href={ROUTES.DASHBOARD}>
+              <Link href="/auth/login">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                  Explore Dashboard
+                  Login
                 </Button>
               </Link>
             </div>
@@ -126,7 +161,7 @@ export default function Home() {
           <p className="text-lg text-muted-foreground mb-8 text-balance">
             Start planning your studies smarter today with StudyFlow
           </p>
-          <Link href={ROUTES.STUDY_PLANNER}>
+          <Link href="/auth/sign-up">
             <Button size="lg">
               Get Started Now <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
