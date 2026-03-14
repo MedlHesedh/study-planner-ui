@@ -164,7 +164,11 @@ export function StudyPlanProvider({ children }: { children: React.ReactNode }) {
     clearAllData,
   }
 
-  return <StudyPlanContext.Provider value={value}>{children}</StudyPlanContext.Provider>
+  return (
+    <StudyPlanContext.Provider value={value}>
+      {children}
+    </StudyPlanContext.Provider>
+  )
 }
 
 export function useStudyPlanStore() {
