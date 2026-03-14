@@ -31,10 +31,13 @@ interface ModuleTableProps {
 
 type SortField = 'name' | 'subject' | 'status' | 'date' | 'hours'
 
+const ALL_SUBJECTS_VALUE = 'all-subjects'
+const ALL_STATUSES_VALUE = 'all-statuses'
+
 export function ModuleTable({ modules, onStatusChange }: ModuleTableProps) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [filterSubject, setFilterSubject] = useState<string>('')
-  const [filterStatus, setFilterStatus] = useState<string>('')
+  const [filterSubject, setFilterSubject] = useState<string>(ALL_SUBJECTS_VALUE)
+  const [filterStatus, setFilterStatus] = useState<string>(ALL_STATUSES_VALUE)
   const [sortField, setSortField] = useState<SortField>('date')
 
   const filteredAndSorted = useMemo(() => {
@@ -48,12 +51,12 @@ export function ModuleTable({ modules, onStatusChange }: ModuleTableProps) {
     }
 
     // Filter by subject
-    if (filterSubject) {
+    if (filterSubject !== ALL_SUBJECTS_VALUE) {
       result = result.filter((m) => m.subject === filterSubject)
     }
 
     // Filter by status
-    if (filterStatus) {
+    if (filterStatus !== ALL_STATUSES_VALUE) {
       result = result.filter((m) => m.status === filterStatus)
     }
 
@@ -130,7 +133,7 @@ export function ModuleTable({ modules, onStatusChange }: ModuleTableProps) {
               <SelectValue placeholder="Filter by subject" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All subjects</SelectItem>
+              <SelectItem value={ALL_SUBJECTS_VALUE}>All subjects</SelectItem>
               {AVAILABLE_SUBJECTS.map((subject) => (
                 <SelectItem key={subject} value={subject}>
                   {subject}
@@ -144,7 +147,7 @@ export function ModuleTable({ modules, onStatusChange }: ModuleTableProps) {
               <SelectValue placeholder="Filter by status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All statuses</SelectItem>
+              <SelectItem value={ALL_STATUSES_VALUE}>All statuses</SelectItem>
               <SelectItem value="Not Started">Not Started</SelectItem>
               <SelectItem value="In Progress">In Progress</SelectItem>
               <SelectItem value="Completed">Completed</SelectItem>

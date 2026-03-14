@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
-  BookOpen,
   Home,
   Calendar,
   ListChecks,
@@ -13,6 +12,7 @@ import {
 } from 'lucide-react'
 import { ROUTES } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { BrandLogo } from '@/components/layout/BrandLogo'
 
 const navItems = [
   { name: 'Dashboard', href: ROUTES.DASHBOARD, icon: Home },
@@ -30,13 +30,11 @@ export function Sidebar() {
     <aside className="w-64 border-r border-border bg-card min-h-screen flex flex-col">
       {/* Logo */}
       <div className="p-6 border-b border-border">
-        <Link href={ROUTES.HOME} className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-            <BookOpen className="w-6 h-6 text-white" />
-          </div>
+        <Link href={ROUTES.HOME} className="flex items-center gap-3">
+          <BrandLogo className="h-11 w-11" priority />
           <div>
-            <h1 className="font-bold text-lg leading-tight">StudyFlow</h1>
-            <p className="text-xs text-muted-foreground">Master Your Learning</p>
+            <h1 className="font-bold text-lg leading-tight">Mathesynia</h1>
+            <p className="text-xs text-muted-foreground">Learn and Understand fully.</p>
           </div>
         </Link>
       </div>
@@ -66,7 +64,7 @@ export function Sidebar() {
 
       {/* Footer */}
       <div className="p-4 border-t border-border text-xs text-muted-foreground text-center">
-        <p>© 2024 StudyFlow</p>
+        <p>© 2024 Mathesynia</p>
       </div>
     </aside>
   )

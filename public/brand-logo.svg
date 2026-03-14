@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M92 168C92 149.222 107.222 134 126 134H268C273.523 134 278 138.477 278 144C278 149.523 273.523 154 268 154H126C118.268 154 112 160.268 112 168V346C112 353.732 118.268 360 126 360H286C291.523 360 296 364.477 296 370C296 375.523 291.523 380 286 380H126C107.222 380 92 364.778 92 346V168Z" fill="#556572"/>
+  <path d="M102 174C102 162.954 110.954 154 122 154H286C291.523 154 296 158.477 296 164C296 169.523 291.523 174 286 174H102Z" fill="#556572"/>
+  <circle cx="128" cy="164" r="8" fill="#0D1117"/>
+  <circle cx="152" cy="164" r="8" fill="#0D1117"/>
+  <circle cx="176" cy="164" r="8" fill="#0D1117"/>
+  <path d="M174 250L144 278L174 306" stroke="#556572" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M232 250L262 278L232 306" stroke="#556572" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M208 234L188 322" stroke="#556572" stroke-width="12" stroke-linecap="round"/>
+  <path d="M183 319L217 340L192 362L183 319Z" fill="#74E1E7"/>
+  <path d="M404 273C404 237.654 375.346 209 340 209C304.654 209 276 237.654 276 273C276 297.786 290.093 319.281 310.687 329.81V354C310.687 359.523 315.164 364 320.687 364H359.313C364.836 364 369.313 359.523 369.313 354V329.81C389.907 319.281 404 297.786 404 273Z" stroke="#74E1E7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M318 404H362" stroke="#556572" stroke-width="12" stroke-linecap="round"/>
+  <path d="M314 382H366" stroke="#556572" stroke-width="12" stroke-linecap="round"/>
+  <path d="M325 432H355" stroke="#556572" stroke-width="12" stroke-linecap="round"/>
+  <path d="M340 222V291" stroke="#74E1E7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M322 321C322 309.954 330.954 301 342 301H338C349.046 301 358 309.954 358 321V326H322V321Z" stroke="#74E1E7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M300 240C287.402 247.706 279 261.615 279 277.487C279 293.875 287.955 308.171 301.222 315.69" stroke="#74E1E7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M380 240C392.598 247.706 401 261.615 401 277.487C401 293.875 392.045 308.171 378.778 315.69" stroke="#74E1E7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M310 230C305.582 238.133 306.224 247.922 311.933 253.631C317.642 259.34 327.431 259.982 335.564 255.564" stroke="#74E1E7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M370 230C374.418 238.133 373.776 247.922 368.067 253.631C362.358 259.34 352.569 259.982 344.436 255.564" stroke="#74E1E7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M304 346H376" stroke="#556572" stroke-width="12" stroke-linecap="round"/>
+</svg>

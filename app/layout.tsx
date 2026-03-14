@@ -8,21 +8,13 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Study Planner - Master Your Learning',
+  title: 'Study Planner - Learn and Understand fully.',
   description: 'An intelligent study planner that automatically distributes your modules across study days',
   generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
+        url: '/brand-logo.svg',
         type: 'image/svg+xml',
       },
     ],

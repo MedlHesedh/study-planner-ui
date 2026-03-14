@@ -7,6 +7,7 @@ import { ArrowRight, BookOpen, Zap, Calendar, BarChart3, Loader } from 'lucide-r
 import { Button } from '@/components/ui/button'
 import { ROUTES } from '@/lib/constants'
 import { createClient } from '@/lib/supabase/client'
+import { BrandLogo } from '@/components/layout/BrandLogo'
 
 export default function Home() {
   const router = useRouter()
@@ -40,12 +41,10 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-8 py-6 border-b border-border/50 backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-            <BookOpen className="w-6 h-6 text-white" />
-          </div>
+        <div className="flex items-center gap-3">
+          <BrandLogo className="h-11 w-11" priority />
           <div>
-            <h1 className="font-bold text-lg">StudyFlow</h1>
+            <h1 className="font-bold text-lg">Mathesynia</h1>
           </div>
         </div>
         <div className="flex gap-3">
@@ -64,10 +63,10 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="text-5xl font-bold leading-tight text-balance">
-                Master Your Learning with Intelligent Study Planning
+                Learn and Understand fully. with Intelligent Study Planning
               </h2>
               <p className="text-xl text-muted-foreground text-balance">
-                StudyFlow automatically distributes your study modules across days, adapts to your schedule, and keeps you focused on what matters.
+                Mathesynia automatically distributes your study modules across days, adapts to your schedule, and keeps you focused on what matters.
               </p>
             </div>
 
@@ -125,7 +124,7 @@ export default function Home() {
       {/* Benefits Section */}
       <section className="max-w-7xl mx-auto px-8 py-16 border-t border-border/50">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Why Choose StudyFlow?</h2>
+          <h2 className="text-3xl font-bold mb-4">Why Choose Mathesynia?</h2>
           <p className="text-lg text-muted-foreground text-balance">
             Everything you need to study smarter, not harder
           </p>
@@ -159,7 +158,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-500/20 rounded-2xl p-12">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Study Routine?</h2>
           <p className="text-lg text-muted-foreground mb-8 text-balance">
-            Start planning your studies smarter today with StudyFlow
+            Start planning your studies smarter today with Mathesynia
           </p>
           <Link href="/auth/sign-up">
             <Button size="lg">
@@ -172,7 +171,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border/50 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-8 text-center text-muted-foreground">
-          <p>© 2024 StudyFlow. Build your perfect study schedule.</p>
+          <p>© 2024 Mathesynia. Build your perfect study schedule.</p>
         </div>
       </footer>
     </div>

@@ -1,8 +1,8 @@
-# Supabase Integration - StudyFlow App
+# Supabase Integration - Mathesynia App
 
 ## Overview
 
-The StudyFlow application has been successfully integrated with Supabase for authentication and data persistence. All user data is now securely stored in the Supabase PostgreSQL database with Row Level Security (RLS) policies enforcing user-specific data access.
+The Mathesynia application has been successfully integrated with Supabase for authentication and data persistence. All user data is now securely stored in the Supabase PostgreSQL database with Row Level Security (RLS) policies enforcing user-specific data access.
 
 ## Database Schema
 
@@ -64,28 +64,33 @@ The StudyFlow application has been successfully integrated with Supabase for aut
 All tables have RLS enabled with the following policies:
 
 ### users
+
 - Users can view their own profile (SELECT)
 - Users can update their own profile (UPDATE)
 
 ### subjects
+
 - Users can view their own subjects (SELECT)
 - Users can insert their own subjects (INSERT)
 - Users can update their own subjects (UPDATE)
 - Users can delete their own subjects (DELETE)
 
 ### study_plans
+
 - Users can view their own study plans (SELECT)
 - Users can insert their own study plans (INSERT)
 - Users can update their own study plans (UPDATE)
 - Users can delete their own study plans (DELETE)
 
 ### modules
+
 - Users can view modules in their study plans (SELECT)
 - Users can insert modules to their study plans (INSERT)
 - Users can update modules in their study plans (UPDATE)
 - Users can delete modules in their study plans (DELETE)
 
 ### study_sessions
+
 - Users can view their own study sessions (SELECT)
 - Users can insert their own study sessions (INSERT)
 - Users can update their own study sessions (UPDATE)
@@ -128,18 +133,18 @@ Unauthenticated users are automatically redirected to `/auth/login`.
 
 ```typescript
 const {
-  user,              // Current authenticated user
-  isLoading,         // Loading state
-  error,             // Error messages
-  fetchStudyPlans,   // GET study plans
-  createStudyPlan,   // CREATE study plan
-  createModule,      // CREATE module
-  fetchModules,      // GET modules for plan
+  user, // Current authenticated user
+  isLoading, // Loading state
+  error, // Error messages
+  fetchStudyPlans, // GET study plans
+  createStudyPlan, // CREATE study plan
+  createModule, // CREATE module
+  fetchModules, // GET modules for plan
   updateModuleStatus, // UPDATE module status
   createStudySession, // CREATE study session
-  fetchSubjects,     // GET subjects
-  createSubject,     // CREATE subject
-} = useSupabaseStudyData()
+  fetchSubjects, // GET subjects
+  createSubject, // CREATE subject
+} = useSupabaseStudyData();
 ```
 
 ### Data Persistence
@@ -154,11 +159,13 @@ Currently, the app still uses localStorage for local state management via `useSt
 ## Migration Notes
 
 ### Current Architecture
+
 - **Authentication**: ✅ Supabase (complete)
 - **Data Storage**: Hybrid (localStorage + Supabase-ready)
 - **State Management**: useStudyPlanStore (localStorage)
 
 ### Next Steps for Full Migration
+
 1. Replace localStorage with Supabase API calls in components
 2. Add optimistic updates for better UX
 3. Implement real-time subscriptions for multi-device sync
@@ -199,16 +206,19 @@ The following environment variables are automatically set by Vercel's Supabase i
 ## Troubleshooting
 
 ### User not redirecting to dashboard after login
+
 - Check that middleware.ts is present and configured
 - Verify NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set
 - Clear browser cookies and try again
 
 ### RLS policy errors
+
 - Verify user_id is being passed correctly
 - Check that user is authenticated before making requests
 - Ensure email is confirmed before attempting CRUD operations
 
 ### Email confirmation not received
+
 - Check Supabase email configuration in project settings
 - Verify email is not going to spam folder
 - Set up email templates in Supabase dashboard

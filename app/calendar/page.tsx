@@ -17,12 +17,14 @@ import {
 } from '@/components/ui/select'
 import { formatDateDisplay } from '@/lib/utils/dateHelpers'
 
+const ALL_PLANS_VALUE = 'all'
+
 export default function CalendarPage() {
   const { modules, updateModule, plans } = useStudyPlanStore()
   const [selectedModule, setSelectedModule] = useState<Module | null>(null)
-  const [selectedPlan, setSelectedPlan] = useState<string>('')
+  const [selectedPlan, setSelectedPlan] = useState<string>(ALL_PLANS_VALUE)
 
-  const filteredModules = selectedPlan
+  const filteredModules = selectedPlan !== ALL_PLANS_VALUE
     ? modules.filter((m) => m.planId === selectedPlan)
     : modules
 
@@ -56,7 +58,7 @@ export default function CalendarPage() {
                 <SelectValue placeholder="All plans" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All plans</SelectItem>
+                <SelectItem value={ALL_PLANS_VALUE}>All plans</SelectItem>
                 {plans.map((plan) => (
                   <SelectItem key={plan.id} value={plan.id}>
                     {plan.name}
