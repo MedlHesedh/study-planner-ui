@@ -45,11 +45,16 @@ export default function SignUpPage() {
             `${window.location.origin}/auth/callback`,
         },
       })
+
       if (error) throw error
+
+      if (!data.user) {
+        throw new Error('Sign up failed — please try again.')
+      }
 
       // Supabase returns an empty identities array when the email is already registered
       // (it does this silently to prevent user enumeration)
-      if (data.user && data.user.identities && data.user.identities.length === 0) {
+      if (data.user.identities && data.user.identities.length === 0) {
         setError('An account with this email already exists. Please log in instead.')
         setIsLoading(false)
         return
