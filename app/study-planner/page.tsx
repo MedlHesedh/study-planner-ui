@@ -2,13 +2,11 @@
 
 import { MainLayout } from '@/components/layout/MainLayout'
 import { StudyPlanForm } from '@/components/study-planner/StudyPlanForm'
-import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export default function StudyPlannerPage() {
   return (
-    <ProtectedRoute>
-      <MainLayout>
-        <div className="space-y-6">
+    <MainLayout>
+      <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">Create Study Plan</h1>
           <p className="text-muted-foreground">
@@ -17,8 +15,7 @@ export default function StudyPlannerPage() {
         </div>
 
         <StudyPlanForm />
-        </div>
-      </MainLayout>
-    </ProtectedRoute>
+      </div>
+    </MainLayout>
   )
 }
