@@ -94,7 +94,9 @@ export default function SubjectsPage() {
                   </p>
                 </CardContent>
               </Card>
-        ))}
+            ))}
+          </div>
+        )}
       </div>
     </MainLayout>
   )
