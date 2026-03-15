@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
-import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -23,9 +22,8 @@ export default function SettingsPage() {
   }
 
   return (
-    <ProtectedRoute>
-      <MainLayout>
-        <div className="space-y-6 max-w-2xl">
+    <MainLayout>
+      <div className="space-y-6 max-w-2xl">
           <div>
             <h1 className="text-3xl font-bold mb-2">Settings</h1>
             <p className="text-muted-foreground">Manage your preferences and data</p>
@@ -152,6 +150,5 @@ export default function SettingsPage() {
           </Card>
         </div>
       </MainLayout>
-    </ProtectedRoute>
   )
 }

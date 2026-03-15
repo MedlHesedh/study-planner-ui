@@ -1,9 +1,9 @@
 'use client'
 
 import { formatDateDisplay } from '@/lib/utils/dateHelpers'
-import { Bell, Settings } from 'lucide-react'
-import Link from 'next/link'
+import { Bell } from 'lucide-react'
 import { ROUTES } from '@/lib/constants'
+import { UserProfileMenu } from './UserProfileMenu'
 
 export function Header() {
   const today = new Date()
@@ -20,12 +20,7 @@ export function Header() {
           <button className="p-2 hover:bg-accent rounded-lg transition-colors">
             <Bell className="w-5 h-5 text-muted-foreground" />
           </button>
-          <Link
-            href={ROUTES.SETTINGS}
-            className="p-2 hover:bg-accent rounded-lg transition-colors"
-          >
-            <Settings className="w-5 h-5 text-muted-foreground" />
-          </Link>
+          <UserProfileMenu />
         </div>
       </div>
     </header>

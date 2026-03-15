@@ -2,7 +2,6 @@
 
 import { useMemo } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
-import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { AVAILABLE_SUBJECTS, SUBJECT_CHART_COLORS } from '@/lib/constants'
@@ -44,9 +43,8 @@ export default function SubjectsPage() {
   }, [modules])
 
   return (
-    <ProtectedRoute>
-      <MainLayout>
-        <div className="space-y-6">
+    <MainLayout>
+      <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">Subjects</h1>
           <p className="text-muted-foreground">
@@ -96,17 +94,8 @@ export default function SubjectsPage() {
                   </p>
                 </CardContent>
               </Card>
-        ))}
-        </div>
-      </MainLayout>
-    </ProtectedRoute>
-  )
-}
-                  className="h-3"
-                />
-              </div>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
         )}
       </div>
     </MainLayout>

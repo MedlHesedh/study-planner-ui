@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { StudyCalendar } from '@/components/calendar/StudyCalendar'
-import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { useStudyPlanStore } from '@/lib/providers/StudyPlanProvider'
 import { Module } from '@/lib/types/study'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -39,9 +38,8 @@ export default function CalendarPage() {
   }
 
   return (
-    <ProtectedRoute>
-      <MainLayout>
-        <div className="space-y-6">
+    <MainLayout>
+      <div className="space-y-6">
           <div>
             <h1 className="text-3xl font-bold mb-2">Study Calendar</h1>
             <p className="text-muted-foreground">
@@ -168,6 +166,5 @@ export default function CalendarPage() {
           </div>
         </div>
       </MainLayout>
-    </ProtectedRoute>
   )
 }
